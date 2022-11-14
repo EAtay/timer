@@ -1,19 +1,21 @@
 import React from "react";
 import "./Timer.scss";
 
-const today = new Date();
+// const interfal = setInterval(countUp, 0);
+// function countUp() {
+const dataNow = new Date().getTime();
 const dayX = new Date(2022, 10 - 1, 26, 4, 30);
-const timeDistance = today - dayX;
-
+const timeDistance = dataNow - dayX;
 let days = 0;
 const hours = Math.floor(
   (timeDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
 );
 const minutes = Math.floor((timeDistance % (1000 * 60 * 60)) / (1000 * 60));
-while (dayX < today) {
+while (dayX < dataNow) {
   dayX.setDate(dayX.getDate() + 1);
   days++;
 }
+// }
 
 const Timer = () => {
   return (
